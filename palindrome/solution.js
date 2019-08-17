@@ -1,30 +1,27 @@
-//check if a word is a palindrome
-
 function palindrome(string) {
 
-  const splitString = string.split('');
-  const reverseString = splitString.reverse();
-  const joinString = reverseString.join('');
-  const newString = joinString;
+  if (typeof string !== "string") {
+    return "is the input a string?";
+  }
 
-  if ((string !== newString) || (isNaN(newString)) === false) {
+  if (typeof string === "string") {
+    const newString = string.split("").reverse().join("")
 
-    return "is not a palindrome";
-  };
-
-  if (string === newString) {
-
-    return newString;
-  };
-
-
-};
+    if (string === newString) {
+      return newString;
+    } else {
+      return "is it a palindrome?";
+    }
+  }
+}
 
 //basic tests
-console.log(palindrome('anna') === "anna");
-console.log(palindrome('racecar') === "racecar");
+console.log(palindrome('anna') === "anna")
+console.log(palindrome('racecar') === "racecar")
 
-//edge case is not a palindrome
-console.log(palindrome('cool') === "is not a palindrome");
-//edge case is a number
-console.log(palindrome('2') === "is not a palindrome");
+//edge case input is not a palindrome
+console.log(palindrome('palindrome') === "is it a palindrome?")
+console.log(palindrome('string') === "is it a palindrome?")
+//edge case input is not a string
+console.log(palindrome(2) === "is the input a string?")
+console.log(palindrome(true) === "is the input a string?")
